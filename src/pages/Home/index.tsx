@@ -91,7 +91,7 @@ export function Home() {
                 }
             </div>
 
-            <div className="trolley row">
+            <div className="trolley close row">
                 <div className="textExit">
                     <div className="row text">
                         <h2>Carrinho de compras</h2>
