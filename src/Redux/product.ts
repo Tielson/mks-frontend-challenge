@@ -79,10 +79,9 @@ export const cartSlice: any = createSlice({
             const productIndex = state.cart.findIndex(
                 (productInCart) => productInCart.id === payload.id
             );
-
-            const copyCart = state.cart.slice();
-            copyCart.splice(productIndex, 1)
-            state.cart = copyCart;
+                console.log(productIndex)
+            state.cart.splice(productIndex, 1)
+           
         },
 
     }

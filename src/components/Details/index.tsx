@@ -41,7 +41,7 @@ export function Details({ photo, name, price, length, e }: T) {
                     R${price}
                 </div>
 
-                <button className="remove" onClick={() => { dispatch(removeToCart(e.id)) }}>X</button>
+                <button className="remove" onClick={() => { dispatch(removeToCart(e)) }}>X</button>
             </div>
 
         </Container>
