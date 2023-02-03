@@ -17,13 +17,16 @@ type T = {
 export function Products({ photo, name, price, description, e }: T) {
     const dispatch = useDispatch();
 
-    const { cart }: any = useSelector((state: RootState) => state.cart);
+    function closeTrolley() {
+        const t = window.document.querySelector('.trolley')
+        t?.classList.remove('close')
 
+    }
     return (
         <Container>
 
             <div className="section products" >
-                <button onClick={() => {dispatch(addToCart(e))}}>
+                <button onClick={() => {dispatch(addToCart(e)), closeTrolley()}}>
                     <div className="iten row">
                         <div className="description">
                             <div className='img1'>

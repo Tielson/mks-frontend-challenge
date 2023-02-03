@@ -152,7 +152,7 @@ grid-area: "T";
 
 footer{
     
-    position: absolute;
+    position: fixed;
     bottom: 0;
     color: #000;
     width: 100%;
