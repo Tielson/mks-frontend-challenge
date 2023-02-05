@@ -9,9 +9,7 @@ export const Container = styled.div`
     border-radius: .8rem;
     margin-bottom: 2.2rem;
 
-
     .product{
-
         height: 100%;
         display: grid !important;
         justify-content: center;
@@ -20,7 +18,6 @@ export const Container = styled.div`
         grid-template-columns: 8rem 11.2rem 9rem 9.4rem auto;
         grid-template-areas: 
         "AA BB CC DD ee";
-        
     }
     
     .img{
@@ -58,29 +55,26 @@ export const Container = styled.div`
         border: none;
         background-color: transparent;
     }
-    button:hover{
+
+     .subtract::before {
+        content: '';
+        position: relative;
+        width: 1rem;
+        height: 2rem;
+        border-left: 0.1rem solid #BFBFBF;
+        bottom: 0px;
+        right: -14px;
     }
 
-         .subtract::before {
-            content: '';
-            position: relative;
-            width: 1rem;
-            height: 2rem;
-            border-left: 0.1rem solid #BFBFBF;
-            bottom: 0px;
-            right: -14px;
-        }
-         .subtract::after {
-            content: '';
-            position: relative;
-            width: 1rem;
-            height: 2rem;
-            border-left: 0.1rem solid #BFBFBF;
-            bottom: 0px;
-            right: -22px;
-        }
-        
-
+     .subtract::after {
+        content: '';
+        position: relative;
+        width: 1rem;
+        height: 2rem;
+        border-left: 0.1rem solid #BFBFBF;
+        bottom: 0px;
+        right: -25px;
+    }
     }
 
     .price{
@@ -92,20 +86,17 @@ export const Container = styled.div`
         line-height: 17px;
 
         color: #000000;
-
-
     }
 
     .remove {
         top: -1.0rem;
-    position: absolute;
-    right: -.8rem;
-    border-radius: 50%;
-    background: black;
-    width: 1.8rem;
-    height: 1.8rem;
-    color: white;
-  font-size: 1.1rem;
+        position: absolute;
+        right: -.8rem;
+        border-radius: 50%;
+        background: black;
+        width: 1.8rem;
+        height: 1.8rem;
+        color: white;
+        font-size: 1.1rem;
     }
 `
-

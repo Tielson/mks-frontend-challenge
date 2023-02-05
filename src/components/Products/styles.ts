@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-
-
 export const Container = styled.div`
 border-radius: .8rem;   
 box-shadow: 0px 0px 6.2px 0.1px #898989;;
-
 
 button{
     background: none;
@@ -14,9 +11,8 @@ button{
 }
 .iten{
     text-align: left;
-
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
 .description{
     padding: 0.8rem 0.8rem 0.5rem 0.8rem;
@@ -36,16 +32,14 @@ flex-direction: column;
         background: none;
     }
 
-
-p{
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1.0rem;
-    line-height: 1.2rem;
-    color: #2C2C2C;
-    padding-top: 1.5rem;
+    p{
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.0rem;
+        line-height: 1.2rem;
+        color: #2C2C2C;
+        padding-top: 1.5rem;
 }
-
 
 .namePrince{
     display: flex;
@@ -62,9 +56,6 @@ p{
         color: #2C2C2C;
     }
 
-   
-
-
     span{
         padding: .4rem .6rem;
         background: #373737;
@@ -79,9 +70,7 @@ p{
         line-height: 1.5rem;
         color: #FFFFFF;
     }
-
-}
-}
+}}
 
 .button{
     display: flex;
@@ -100,9 +89,6 @@ p{
     font-size: 1.4rem;
     line-height: 1.8rem;
     color: #FFFFFF;
-
-
-
       
     h1{
         font-style: normal;
@@ -111,13 +97,9 @@ p{
         line-height: 1.8rem;
         color: #FFFFFF;
     }
-    
     svg{
         height: 1.4rem;
         width: 1.3rem;
-        
     }
-
-}
-}
+}}
 `;

@@ -1,33 +1,30 @@
-import { Container } from './styles'
 import { TiShoppingCart } from 'react-icons/ti';
-import { useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store';
 import { useEffect, useState } from "react"
+import { useSelector } from 'react-redux';
+import { Container } from './styles'
 
-type T = {
-    cartLength: number
-}
 
-export function Header({ cartLength }: T) {
+export function Header() {
+
     const { cart }: any = useSelector((state: RootState) => state.cart);
-    const [quantity, setQuantity] = useState<[]>([])
-    function closeTrolley() {
-        const t = window.document.querySelector('.trolley')
-        t?.classList.toggle('close')
-    }
-
-
-
+    const [quantityProduct, setquantityProduct] = useState<[]>([])
 
     useEffect(() => {
-      const t = cart.reduce((accumulator :any, payload :any) => {
-            const subTotal = accumulator + payload.quantity;
+        const sumProduct = cart.reduce((accumulator: any, payload: any) => {
+            const sumProduct = accumulator + payload.quantity;
 
-            return ( subTotal);
+            return (sumProduct);
         }, 0)
 
-        setQuantity( t)
+        setquantityProduct(sumProduct)
     }, [cart])
+
+    function closeTrolley() {
+        const trolley = window.document.querySelector('.trolley')
+        trolley?.classList.toggle('close')
+    }
+
 
 
     return (
@@ -40,7 +37,7 @@ export function Header({ cartLength }: T) {
                 <button onClick={() => closeTrolley()}>
                     <div>
                         <TiShoppingCart />
-                        <span>{quantity}</span>
+                        <span>{quantityProduct}</span>
                     </div>
                 </button>
             </div>

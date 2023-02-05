@@ -1,10 +1,7 @@
-import { Container } from './styles.js'
-
-import { FiShoppingBag } from 'react-icons/fi';
-import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Redux/product.js';
-import { useEffect, useState } from "react"
-import { RootState } from '../../Redux/store.js';
+import { FiShoppingBag } from 'react-icons/fi';
+import { useDispatch } from 'react-redux';
+import { Container } from './styles.js'
 
 type T = {
     photo: string
@@ -17,22 +14,19 @@ type T = {
 export function Products({ photo, name, price, description, e }: T) {
     const dispatch = useDispatch();
 
-    
     return (
         <Container>
-
             <div className="section products" >
-                <button onClick={() => {dispatch(addToCart(e))}}>
+                <button onClick={() => { dispatch(addToCart(e)) }}>
                     <div className="iten row">
                         <div className="description">
                             <div className='img1'>
                                 <img src={photo} alt="relogio" />
                             </div>
+
                             <div className='namePrince'>
                                 <h2>{name}</h2>
-
                                 <span>R${price}</span>
-
                             </div>
                             <p>{description}</p>
                         </div>
@@ -46,10 +40,6 @@ export function Products({ photo, name, price, description, e }: T) {
                     </div>
                 </button>
             </div>
-
-
-
         </Container>
     )
 }
-

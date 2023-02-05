@@ -1,33 +1,24 @@
 
 import { Container } from "./styles"
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from "../../Redux/store";
-import { decrementProductToCart, incrementProductToCart,removeToCart } from "../../Redux/product";
+import { useDispatch } from 'react-redux';
+import { decrementProductToCart, incrementProductToCart, removeToCart } from "../../Redux/product";
 
 type T = {
     photo: string
     name: string
     price: string
-    length: number
     e: any
 }
 
-
-
-export function Details({ photo, name, price, length, e }: T) {
-    const { cart }: any = useSelector((state: RootState) => state.cart);
+export function Details({ photo, name, price, e }: T) {
 
     const dispatch = useDispatch();
 
     return (
-
         <Container>
             <div className="row product">
-
                 <div className="img"><img src={photo} alt="Acessorio" /> </div>
                 <div className="name"> <h3>{name}</h3></div>
-
                 <div className="qnt">
                     <div className="subtract">
                         <button onClick={() => { dispatch(decrementProductToCart(e.id)) }}>-</button>
@@ -40,10 +31,8 @@ export function Details({ photo, name, price, length, e }: T) {
                 <div className="price">
                     R${price}
                 </div>
-
                 <button className="remove" onClick={() => { dispatch(removeToCart(e)) }}>X</button>
             </div>
-
         </Container>
     )
 }

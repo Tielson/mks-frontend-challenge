@@ -16,10 +16,6 @@ body{
     -webkit-font-smoothing: antialiased; 
     font-size: 1.6rem;
     outline: none;
-    
-
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
 a{
@@ -47,14 +43,12 @@ a{
      outline: none;
     }
 
-
     .section{
      overflow-y: auto;
      overflow-x: hidden;
      max-width: 150rem;
      margin: auto;
     }
-
 
     .row{
      display: flex;

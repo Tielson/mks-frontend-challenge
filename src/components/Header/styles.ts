@@ -18,7 +18,7 @@ export const Container = styled.div`
         align-items: center;
         gap: 0.6rem;
 
-            h1{
+        h1{
                 font-style: normal;
                 font-weight: 600;
                 font-size: 4.0rem;

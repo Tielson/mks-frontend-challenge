@@ -37,9 +37,6 @@ export const Container = styled.div`
     align-items: center;
     transition: all 0.3s ease;
     height: 100%;
-
-
-
 }
 
 .textExit{
@@ -62,15 +59,11 @@ grid-area: "T";
     color: #FFFFFF;
 }
 
-
-
 .trolley .exit{
     background: #000000;
     width: 3.8rem;
     height: 3.8rem;
     border-radius: 50%;
-    
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,7 +76,6 @@ grid-area: "T";
             font-size: 2.4rem;
             align-items: center;
             display: flex;
-
         }
 }
 
@@ -111,11 +103,8 @@ grid-area: "T";
   border: .3rem solid #ffff;  
 }
 
-
 .trolley .prince{
     grid-area: "P";
-
-
     justify-content: space-between;
 
     h2:nth-child(2){
@@ -125,12 +114,10 @@ grid-area: "T";
 
 .trolley .button{
     margin: -5.5rem;
- 
 }
 
 .trolley .button button{
     border: none;
-  
     color: #000;
     width: 100%;
     height: 9.7rem; 
@@ -141,17 +128,14 @@ grid-area: "T";
     line-height: 1.5rem;
     background-color: #EEEEEE;
     background: #000000;
-
     font-style: normal;
     font-weight: 700;
     font-size: 2.8rem;
     line-height: 1.5rem;
-
     color: #FFFFFF;
 }
 
 footer{
-    
     position: fixed;
     bottom: 0;
     color: #000;
@@ -164,6 +148,8 @@ footer{
     line-height: 1.5rem;
     background-color: #EEEEEE;
     color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 `

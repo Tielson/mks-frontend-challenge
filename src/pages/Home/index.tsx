@@ -8,9 +8,8 @@ import { Container } from "./styles"
 import { useEffect, useState } from "react"
 import { Details } from "../../components/Details/index.js";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartValue, addToCart, decrementProductToCart, incrementProductToCart } from "../../Redux/product.js";
 import { RootState } from "../../Redux/store.js";
-import { getPriceBRL } from '../../utils'
+import { purchaseItens } from "../../Redux/product.js";
 
 export type Product = {
     id: number;
@@ -25,22 +24,23 @@ export type ProductToCart = Product & {
     quantity: number;
 };
 
-
-
-
 export function Home() {
-
     const { cart }: any = useSelector((state: RootState) => state.cart);
-
     const [products, setProducts] = useState<Product[]>([])
     const [detais, setDetails] = useState<Product[]>([])
-    const [price, setprice] = useState<Product[]>([])
+    const [amout, setAmout] = useState<Product[]>([])
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        fetch("https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=ASC")
+            .then(res => res.json())
+            .then(data => setProducts(data.products))
+    }, [])
 
     useEffect(() => {
         setDetails(cart)
 
-        const pricee = () => {
-
+        const sumValue = () => {
             const isEmptyCart = cart.length === 0;
             if (isEmptyCart) {
                 return 0;
@@ -51,31 +51,18 @@ export function Home() {
 
                 return (accumulator + subTotal);
             }, 0)
-        }
-        setprice(pricee)
-
-
+        };
+        setAmout(sumValue)
     }, [cart])
 
     function closeTrolley() {
-        const t = window.document.querySelector('.trolley')
-        t?.classList.toggle('close')
-
+        const trolley = window.document.querySelector('.trolley')
+        trolley?.classList.toggle('close')
     }
-
-    useEffect(() => {
-        fetch("https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=ASC")
-            .then(res => res.json())
-            .then(data => setProducts(data.products))
-
-    }, [])
 
     return (
         <Container>
-
-            <Header
-                cartLength={0} />
-
+            <Header />
             <div className="group row">
                 {
                     products.map((e) => (
@@ -108,7 +95,6 @@ export function Home() {
                                 name={e.name}
                                 photo={e.photo}
                                 price={e.price}
-                                length={e.length}
                                 e={e}
                             />
                         ))}
@@ -116,10 +102,10 @@ export function Home() {
                 </div>
                 <div className="row prince">
                     <h2>Total:</h2>
-                    <h2 className="R">{`R$${price}`}</h2>
+                    <h2 className="R">{`R$${amout}`}</h2>
                 </div>
                 <div className="button">
-                    <button >Finalizar Compra</button>
+                    <button onClick={()=>dispatch(purchaseItens()) }>Finalizar Compra</button>
                 </div>
             </div>
 

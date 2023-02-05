@@ -1,14 +1,9 @@
-import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit'
-import { ProductToCart, Product } from '../pages/Home';
-
-
-
+import { ProductToCart } from '../pages/Home';
 
 const initialState: { cart: ProductToCart[] } = {
     cart: [],
 }
-
 
 export const cartSlice: any = createSlice({
     name: "products",
@@ -27,6 +22,7 @@ export const cartSlice: any = createSlice({
             copyCart[productIndex].quantity += 1;
             state.cart = copyCart;
         },
+
         decrementProductToCart: (state, { payload }) => {
             const productIndex = state.cart.findIndex(
                 (product) => product.id === payload
@@ -39,7 +35,8 @@ export const cartSlice: any = createSlice({
             const copyCart = state.cart.slice();
             const product = copyCart[productIndex];
 
-            if (product.quantity === 0) {
+            if (product.quantity === 1) {
+                state.cart.splice(productIndex, 1)
                 return;
             }
 
@@ -56,7 +53,6 @@ export const cartSlice: any = createSlice({
 
             return state.cart.reduce((accumulator, payload) => {
                 const subTotal = Number(payload.price) * payload.quantity;
-
                 return (accumulator + subTotal);
             }, 0)
         },
@@ -75,19 +71,21 @@ export const cartSlice: any = createSlice({
             copyCart[productIndex].quantity += 1;
             state.cart = copyCart;
         },
+
         removeToCart: (state, { payload }) => {
             const productIndex = state.cart.findIndex(
                 (productInCart) => productInCart.id === payload.id
             );
-                console.log(productIndex)
             state.cart.splice(productIndex, 1)
-           
         },
 
+        purchaseItens: (state) => {
+            state.cart.length = 0
+        },
     }
 })
 
-export const { addToCart, decrementProductToCart, incrementProductToCart, getCartValue, removeToCart } = cartSlice.actions
+export const { addToCart, decrementProductToCart, incrementProductToCart, getCartValue, removeToCart, purchaseItens } = cartSlice.actions
 
 export const productToCartt = (state: any) => state.products
 
